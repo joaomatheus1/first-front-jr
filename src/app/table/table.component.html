@@ -1,0 +1,43 @@
+<p-table [value]="dataFiltered">
+  <ng-template pTemplate="caption">
+    <div class="header-table">
+      <div class="actions-table">
+          <div class="input-search">
+            <input type="text" pInputText placeholder="Pesquise pelo nome ou e-mail" [(ngModel)]="nameFiltered" (ngModelChange)="filteringTable()">
+          </div>
+          <div class="select-filter">
+            <select name="" id=""></select>
+          </div>
+      </div>
+      <div class="form-button">
+        <button>Novo usuário</button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr class="header-line">
+      <th class="ps-3">Usuários</th>
+      <th>Status</th>
+      <th>Data de criação</th>
+      <th class="pe-3">Último acesso</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+    <tr class="body-line" [ngClass]="{'odd': rowIndex % 2 === 0, 'even': rowIndex % 2 !== 0}">
+      <td class="ps-3">
+        <div class="d-flex align-center gap-1">
+          <div class="p-1">
+            <img src="" alt="icon" class="icon">
+          </div>
+          <div class="d-flex flex-column">
+            <div class="fw-bold">{{ user.name }}</div>
+            <div class="gray">{{ user.email }}</div>
+          </div>
+        </div>
+      </td>
+      <td>{{ user.status }}</td>
+      <td>{{ user.creationDate }}</td>
+      <td class="pe-3">{{ user.lastAcess }}</td>
+    </tr>
+  </ng-template>
+</p-table>

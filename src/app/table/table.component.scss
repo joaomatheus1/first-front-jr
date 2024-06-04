@@ -1,0 +1,15 @@
+.header-line th, .body-line td {
+  font-size: 0.9rem;
+  color: #000;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 1rem 0;
+}
+.body-line td {
+
+}
+.body-line.odd{
+  background-color: #F9FAFC;
+}
+.body-line.even {
+  background-color: #fff;
+}
