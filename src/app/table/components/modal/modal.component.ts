@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface IPerfil {
+  label: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -7,7 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  perfil: IPerfil[] = [
+    { label: 'Supervisor', value: 'SUP' },
+    { label: 'Analista', value: 'ANA' }
+  ];
+  selectedPerfil: string[] = [];
+
+
+  constructor() { console.log(this.selectedPerfil) }
 
   ngOnInit() {
   }

@@ -11,10 +11,12 @@
         />
       </div>
       <div class="select-filter">
-        <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="filteringTable()">
-          <option hidden>Filtrar</option>
-          <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
-        </select>
+        <p-dropdown
+          [options]="statusOptions"
+          [(ngModel)]="selectedStatus"
+          placeholder="Filtrar"
+          (onChange)="filteringTable()">
+      </p-dropdown>
       </div>
     </div>
     <div class="form-button">
@@ -49,7 +51,11 @@
             </div>
           </div>
         </td>
-        <td>{{ user.status }}</td>
+        <td [ngClass]="{
+          'ativo': user.status === 'Ativo',
+          'pendente': user.status === 'Pendente',
+          'bloqueado': user.status === 'Bloqueado'
+        }"><span>{{ user.status }}</span></td>
         <td>{{ user.creationDate }}</td>
         <td class="pe-3">{{ user.lastAcess }}</td>
       </tr>

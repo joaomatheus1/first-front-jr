@@ -1,6 +1,18 @@
+::ng-deep .p-dropdown.p-component {
+  border: 1px solid #E8E8E8;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  height: unset;
+  width: unset;
+  :focus {
+    border: 1px solid #E8E8E8;
+  }
+  .p-element.p-dropdown-label {
+    padding: 0;
+  }
+}
 .content-table {
   background-color: #fff;
-  border-radius: 10px;
   border: 1px solid #E8E8E8;
 }
 
@@ -16,10 +28,13 @@
 .body-line.even {
   background-color: #fff;
 }
+.header-line th {
+  background-color: #fff;
+}
 .input-search input {
   min-width: 300px;
 }
-.input-search input, .select-filter select {
+.input-search input {
   border: 1px solid #E8E8E8;
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -38,4 +53,21 @@
   outline: none;
   border: none;
   border-radius: 10px;
+}
+
+.ativo span, .bloqueado span, .pendente span {
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+.ativo span {
+  background-color: #E9FFEF;
+  color: #5EA67A;
+}
+.bloqueado span {
+  background-color: #FFEAEA;
+  color: #CE4845;
+}
+.pendente span {
+  background-color: #FFFDE9;
+  color: #DAC98B;
 }
