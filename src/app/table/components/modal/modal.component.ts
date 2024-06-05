@@ -1,31 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-interface IPerfil {
-  label: string;
-  value: string;
-}
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
-
-  perfil: IPerfil[] = [
-    { label: 'Supervisor', value: 'SUP' },
-    { label: 'Analista', value: 'ANA' }
-  ];
-  selectedPerfil: string[] = [];
+export class ModalComponent {
 
 
-  constructor() { console.log(this.selectedPerfil) }
+  constructor() {}
 
-  ngOnInit() {
-  }
 
-  submitForm(){
-
-  }
 
 }

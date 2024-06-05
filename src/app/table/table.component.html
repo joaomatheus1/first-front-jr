@@ -8,31 +8,41 @@
         placeholder="Pesquise pelo nome ou e-mail"
         [(ngModel)]="nameFiltered"
         (ngModelChange)="filteringTable()"
-        />
-      </div>
-      <div class="select-filter">
-        <p-dropdown
-          [options]="statusOptions"
-          [(ngModel)]="selectedStatus"
-          placeholder="Filtrar"
-          (onChange)="filteringTable()">
-      </p-dropdown>
-      </div>
+      />
     </div>
-    <div class="form-button">
-      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Novo usuário
-      </button>
+    <div class="select-filter">
+      <p-dropdown
+        [options]="statusOptions"
+        [(ngModel)]="selectedStatus"
+        placeholder="Filtrar"
+        (onChange)="filteringTable()"
+      >
+      </p-dropdown>
+    </div>
+  </div>
+  <div class="form-button">
+    <button
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+      Novo usuário
+    </button>
   </div>
 </div>
 <div class="content-table">
-  <p-table [value]="dataFiltered">
+  <p-table
+    [value]="dataFiltered"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+  >
     <ng-template pTemplate="header">
       <tr class="header-line">
         <th class="ps-3">Usuários</th>
         <th>Status</th>
-        <th>Data de criação</th>
-        <th class="pe-3">Último acesso</th>
+        <th pSortableColumn="creationDate">Data de criação</th>
+        <th class="pe-3" pSortableColumn="lastAcess">Último acesso</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
@@ -51,15 +61,18 @@
             </div>
           </div>
         </td>
-        <td [ngClass]="{
-          'ativo': user.status === 'Ativo',
-          'pendente': user.status === 'Pendente',
-          'bloqueado': user.status === 'Bloqueado'
-        }"><span>{{ user.status }}</span></td>
+        <td
+          [ngClass]="{
+            ativo: user.status === 'Ativo',
+            pendente: user.status === 'Pendente',
+            bloqueado: user.status === 'Bloqueado'
+          }"
+        >
+          <span>{{ user.status }}</span>
+        </td>
         <td>{{ user.creationDate }}</td>
         <td class="pe-3">{{ user.lastAcess }}</td>
       </tr>
     </ng-template>
   </p-table>
 </div>
-

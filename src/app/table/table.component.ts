@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IUser } from 'src/shared/user';
+import { IUser } from 'src/utils/user';
 
 @Component({
   selector: 'app-table',
@@ -25,7 +25,7 @@ export class TableComponent {
       name: 'Carlos',
       email: 'funfun@gmail.com',
       status: 'Pendente',
-      creationDate: '10/10/2020',
+      creationDate: '12/10/2020',
       lastAcess: '10/10/2020',
     },
     {
@@ -39,7 +39,35 @@ export class TableComponent {
       name: 'José',
       email: 'fonfon@gmail.com',
       status: 'Bloqueado',
+      creationDate: '11/10/2020',
+      lastAcess: '10/10/2020',
+    },
+    {
+      name: 'João Matheus',
+      email: 'joasd@gmail.com',
+      status: 'Ativo',
       creationDate: '10/10/2020',
+      lastAcess: '10/10/2020',
+    },
+    {
+      name: 'Carlos',
+      email: 'funfun@gmail.com',
+      status: 'Pendente',
+      creationDate: '12/10/2020',
+      lastAcess: '10/10/2020',
+    },
+    {
+      name: 'Carlos',
+      email: 'fasddn@gmail.com',
+      status: 'Ativo',
+      creationDate: '10/10/2020',
+      lastAcess: '10/10/2020',
+    },
+    {
+      name: 'José',
+      email: 'fonfon@gmail.com',
+      status: 'Bloqueado',
+      creationDate: '11/10/2020',
       lastAcess: '10/10/2020',
     },
   ];

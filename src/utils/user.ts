@@ -5,3 +5,8 @@ export interface IUser {
   creationDate: string;
   lastAcess: string;
 }
+
+export interface IPerfil {
+  label: string;
+  value: string;
+}
