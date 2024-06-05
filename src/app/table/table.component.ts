@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from 'src/shared/user';
 
 @Component({
   selector: 'app-table',
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
-  users: any[] = [
+  statusOptions = [
+    { label: 'Todos', value: '' },
+    { label: 'Ativo', value: 'Ativo' },
+    { label: 'Pendente', value: 'Pendente' },
+    { label: 'Bloqueado', value: 'Bloqueado' },
+  ];
+  users: IUser[] = [
     {
       name: 'João Matheus',
       email: 'joasd@gmail.com',
@@ -17,6 +24,13 @@ export class TableComponent {
     {
       name: 'Carlos',
       email: 'funfun@gmail.com',
+      status: 'Pendente',
+      creationDate: '10/10/2020',
+      lastAcess: '10/10/2020',
+    },
+    {
+      name: 'Carlos',
+      email: 'fasddn@gmail.com',
       status: 'Ativo',
       creationDate: '10/10/2020',
       lastAcess: '10/10/2020',
@@ -24,25 +38,28 @@ export class TableComponent {
     {
       name: 'José',
       email: 'fonfon@gmail.com',
-      status: 'Ativo',
+      status: 'Bloqueado',
       creationDate: '10/10/2020',
       lastAcess: '10/10/2020',
     },
   ];
   nameFiltered: string = '';
-  constructor() {}
+  selectedStatus: string = '';
+  dataFiltered: IUser[] = [];
+  loading: boolean = false;
 
-  dataFiltered = [...this.users];
+  constructor() {
+    this.dataFiltered = [...this.users];
+  }
 
   filteringTable() {
-    if (this.nameFiltered.trim().toLowerCase()) {
-      this.dataFiltered = this.users.filter(
-        (data) =>
-          data.name.toLowerCase().includes(this.nameFiltered) ||
-          data.email.toLowerCase().includes(this.nameFiltered)
-      );
-    } else {
-      this.dataFiltered = [...this.users];
-    }
+    this.dataFiltered = this.users.filter((user) => {
+      const nameFiltered =
+        user.name.toLowerCase().includes(this.nameFiltered.toLowerCase()) ||
+        user.email.toLowerCase().includes(this.nameFiltered.toLowerCase());
+      const statusFiltered =
+        this.selectedStatus === '' || user.status === this.selectedStatus;
+      return nameFiltered && statusFiltered;
+    });
   }
 }

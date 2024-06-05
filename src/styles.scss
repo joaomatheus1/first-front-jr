@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
   font-family: "Poppins", sans-serif;
   background-color: #F6F8FA;
+}
+input:focus, select:focus {
+  outline: none;
+  box-shadow: none;
 }

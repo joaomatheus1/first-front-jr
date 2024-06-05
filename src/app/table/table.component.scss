@@ -1,15 +1,41 @@
+.content-table {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #E8E8E8;
+}
+
 .header-line th, .body-line td {
   font-size: 0.9rem;
   color: #000;
   border-bottom: 1px solid #E8E8E8;
   padding: 1rem 0;
 }
-.body-line td {
-
-}
 .body-line.odd{
   background-color: #F9FAFC;
 }
 .body-line.even {
   background-color: #fff;
+}
+.input-search input {
+  min-width: 300px;
+}
+.input-search input, .select-filter select {
+  border: 1px solid #E8E8E8;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+
+  :focus {
+    border: 1px solid #E8E8E8;
+  }
+}
+
+.form-button button {
+  background-color: #6691FF;
+  color: #fff;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
 }
