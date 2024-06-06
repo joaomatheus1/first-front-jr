@@ -73,3 +73,55 @@
 button.btn-submit-form:disabled {
   opacity: 0.5;
 }
+
+.p-inputgroup {
+  width: unset;
+}
+.selectCountry {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.input-number {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  padding: .375rem .75rem !important;
+}
+
+.country-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ img {
+  width: 25px;
+ }
+}
+::ng-deep .p-inputgroup {
+  .p-element.p-inputwrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.p-inputgroup-addon {
+  background-color: #fff;
+}
+.p-dropdown {
+  width: 100% !important;
+  padding: 0 !important;
+  background-color: #fff;
+  border: none;
+  .p-dropdown-trigger {
+    width: unset;
+  }
+  }
+
+}
+::ng-deep .p-inputgroup .p-element.p-dropdown-label {
+  padding: 0 !important;
+}

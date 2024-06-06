@@ -31,7 +31,7 @@
           />
           <app-validation-message />
         </div>
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <!-- <div class="form-group d-flex flex-column col-6 mb-3">
           <label for="telefone" class="form-label"
             >Telefone<span class="text-gray"> - Opcional</span></label
           >
@@ -42,7 +42,23 @@
             id="phone"
             formControlName="phone"
           />
-          <app-validation-message />
+        </div> -->
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="telefone" class="form-label"
+            >Telefone<span class="text-gray"> - Opcional</span></label
+          >
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon p-0">
+              <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" formControlName="flag" optionLabel="code" (onChange)="setMask()">
+                <ng-template let-country pTemplate="selectedItem">
+                  <div class="country-item">
+                    <img [src]="country.flag" class="flag" alt="{{country.name}}" />
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </span>
+            <input class="input-number p-0" formControlName="phone" type="text" pInputText [mask]="mask" />
+          </div>
         </div>
         <div class="form-group d-flex flex-column col-6 mb-3">
           <label for="email" class="form-label">Email</label>

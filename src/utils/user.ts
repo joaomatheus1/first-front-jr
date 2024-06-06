@@ -5,6 +5,7 @@ export interface IUser {
   firstName: string;
   fullName: string;
   id: string;
+  flag: string;
   language: string;
   lastAcess: string;
   lastName:string;

@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { ValidationMessageModule } from "../shared/validation-mensage/validation-message.module";
@@ -35,6 +36,7 @@ import { TableComponent } from './table/table.component';
         BrowserAnimationsModule,
         ValidationMessageModule,
         DialogModule,
+        InputTextModule,
         NgxMaskModule.forRoot()
     ]
 })

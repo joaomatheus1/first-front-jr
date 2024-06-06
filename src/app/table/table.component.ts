@@ -28,6 +28,7 @@ export class TableComponent {
       id: '0',
       status: 'Bloqueado',
       perfilAcess: ['AN'],
+      flag: '0'
     },
     {
       fullName: 'João Matheus',
@@ -42,6 +43,7 @@ export class TableComponent {
       id: '0',
       status: 'Bloqueado',
       perfilAcess: ['AN'],
+      flag: '0'
     },
     {
       fullName: 'João Matheus',
@@ -56,6 +58,7 @@ export class TableComponent {
       id: '0',
       status: 'Pendente',
       perfilAcess: ['AN'],
+      flag: '0'
     },    {
       fullName: 'João Matheus',
       contactPreferential: 'email',
@@ -69,6 +72,7 @@ export class TableComponent {
       id: '0',
       status: 'Pendente',
       perfilAcess: ['AN'],
+      flag: '0'
     }
   ];
   nameFiltered: string = '';
@@ -84,7 +88,6 @@ export class TableComponent {
   setUser(user: IUser) {
     this.users.push(user)
     this.filteringTable()
-    console.log(this.users)
   }
 
   filteringTable() {
