@@ -11,7 +11,7 @@
       [formGroup]="userForm"
     >
       <div class="row">
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="name" class="form-label">Nome</label>
           <input
             type="text"
@@ -21,7 +21,7 @@
           />
           <app-validation-message />
         </div>
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="sobrenome" class="form-label">Sobrenome</label>
           <input
             type="text"
@@ -31,7 +31,7 @@
           />
           <app-validation-message />
         </div>
-        <!-- <div class="form-group d-flex flex-column col-6 mb-3">
+        <!-- <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="telefone" class="form-label"
             >Telefone<span class="text-gray"> - Opcional</span></label
           >
@@ -43,7 +43,7 @@
             formControlName="phone"
           />
         </div> -->
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="telefone" class="form-label"
             >Telefone<span class="text-gray"> - Opcional</span></label
           >
@@ -60,7 +60,7 @@
             <input class="input-number p-0" formControlName="phone" type="text" pInputText [mask]="mask" />
           </div>
         </div>
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="email" class="form-label">Email</label>
           <input
             type="email"
@@ -79,7 +79,7 @@
           ></p-multiSelect>
           <app-validation-message />
         </div>
-        <div class="form-group d-flex flex-column col-6 mb-3">
+        <div class="form-group d-flex flex-column col-12 col-md-6 mb-3">
           <label for="idioma">Idioma</label>
           <select class="form-control select-idioma" formControlName="language" id="language">
             <option value="" hidden>Selecione o idioma</option>
@@ -89,7 +89,7 @@
           </select>
           <app-validation-message />
         </div>
-        <div class="d-flex flex-column col-6 mb-3">
+        <div class="d-flex flex-column col-12 col-md-6 mb-3">
           <label for="contato-preferencial"
             >Contato preferencial<span class="text-gray">
               - Opcional</span

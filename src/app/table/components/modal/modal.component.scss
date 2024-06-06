@@ -125,3 +125,15 @@ button.btn-submit-form:disabled {
 ::ng-deep .p-inputgroup .p-element.p-dropdown-label {
   padding: 0 !important;
 }
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+  background-color: #6691FF !important;
+  color: #fff !important;
+}
