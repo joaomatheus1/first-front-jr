@@ -1,4 +1,4 @@
-::ng-deep .p-dropdown.p-component {
+.select-filter select {
   border: 1px solid #E8E8E8;
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -6,9 +6,6 @@
   width: unset;
   :focus {
     border: 1px solid #E8E8E8;
-  }
-  .p-element.p-dropdown-label {
-    padding: 0;
   }
 }
 .content-table {

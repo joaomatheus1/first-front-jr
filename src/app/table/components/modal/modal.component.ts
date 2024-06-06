@@ -59,7 +59,7 @@ export class ModalComponent  {
     formData.value.fullName = `${this.setFullName(formData.value.firstName)} ${this.setFullName(formData.value.lastName)}`;
     formData.value.status = "Ativo"; //Qual quer usuário criado pelo formulário vai ser setado como ativo.
     this.setUser.emit(formData.value);
-    alert("Usuário cadastrado !");
+    alert("Convite enviado com sucesso");
     this.clearForm();
   }
   onClose() {

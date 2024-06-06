@@ -11,13 +11,10 @@
       />
     </div>
     <div class="select-filter">
-      <p-dropdown
-        [options]="statusOptions"
-        [(ngModel)]="selectedStatus"
-        placeholder="Filtrar"
-        (onChange)="filteringTable()"
-      >
-      </p-dropdown>
+      <select [(ngModel)]="selectedStatus" (change)="filteringTable()">
+        <option value="" disabled selected>Filtrar</option>
+        <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
+      </select>
     </div>
   </div>
   <div class="form-button">

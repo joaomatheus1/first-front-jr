@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule } from 'ngx-mask';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
 import { InitialsIconComponent } from './table/components/initials-icon/initials-icon.component';
 import { ModalComponent } from './table/components/modal/modal.component';
 import { TableComponent } from './table/table.component';
+
 
 @NgModule({
     declarations: [
@@ -33,6 +35,7 @@ import { TableComponent } from './table/table.component';
         BrowserAnimationsModule,
         ValidationMessageModule,
         DialogModule,
+        NgxMaskModule.forRoot()
     ]
 })
 export class AppModule { }

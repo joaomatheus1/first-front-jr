@@ -12,7 +12,7 @@ export class InitialsIconComponent {
   constructor() {}
 
   pickFirstChar(name: string) {
-    return name.charAt(0)
+    return name.toUpperCase().charAt(0)
   }
 
   setName() {

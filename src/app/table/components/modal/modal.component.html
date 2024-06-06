@@ -36,11 +36,11 @@
             >Telefone<span class="text-gray"> - Opcional</span></label
           >
           <input
-            type="tel"
+            type="text"
+            [mask] = "'(00) 0 0000-0000'"
             class="form-control"
             id="phone"
             formControlName="phone"
-            mask = "(00) 0 0000-0000"
           />
           <app-validation-message />
         </div>
