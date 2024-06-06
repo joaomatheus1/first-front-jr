@@ -16,61 +16,60 @@ export class TableComponent {
   ];
   users: IUser[] = [
     {
-      name: 'João Matheus',
-      email: 'joasd@gmail.com',
-      status: 'Ativo',
-      creationDate: '10/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'Carlos',
-      email: 'funfun@gmail.com',
-      status: 'Pendente',
-      creationDate: '12/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'Carlos',
-      email: 'fasddn@gmail.com',
-      status: 'Ativo',
-      creationDate: '10/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'José',
-      email: 'fonfon@gmail.com',
+      fullName: 'João Matheus',
+      contactPreferential: 'email',
+      creationDate: '04/06/2024',
+      lastAcess: '06/06/2024 às 13:23h',
+      phone: '81984659946',
+      email: 'joao.matheeus1555@gmail.com',
+      firstName: 'João',
+      lastName: 'Matheus',
+      language: '1',
+      id: '0',
       status: 'Bloqueado',
-      creationDate: '11/10/2020',
-      lastAcess: '10/10/2020',
+      perfilAcess: ['AN'],
     },
     {
-      name: 'João Matheus',
-      email: 'joasd@gmail.com',
-      status: 'Ativo',
-      creationDate: '10/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'Carlos',
-      email: 'funfun@gmail.com',
-      status: 'Pendente',
-      creationDate: '12/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'Carlos',
-      email: 'fasddn@gmail.com',
-      status: 'Ativo',
-      creationDate: '10/10/2020',
-      lastAcess: '10/10/2020',
-    },
-    {
-      name: 'José',
-      email: 'fonfon@gmail.com',
+      fullName: 'João Matheus',
+      contactPreferential: 'email',
+      creationDate: '05/06/2024',
+      lastAcess: '06/06/2024 às 13:22h',
+      phone: '81984659946',
+      email: 'joao.matheeus1555@gmail.com',
+      firstName: 'João',
+      lastName: 'Matheus',
+      language: '1',
+      id: '0',
       status: 'Bloqueado',
-      creationDate: '11/10/2020',
-      lastAcess: '10/10/2020',
+      perfilAcess: ['AN'],
     },
+    {
+      fullName: 'João Matheus',
+      contactPreferential: 'email',
+      creationDate: '06/06/2024',
+      lastAcess: '06/06/2024 às 13:30h',
+      phone: '81984659946',
+      email: 'joao.matheeus1555@gmail.com',
+      firstName: 'João',
+      lastName: 'Matheus',
+      language: '1',
+      id: '0',
+      status: 'Pendente',
+      perfilAcess: ['AN'],
+    },    {
+      fullName: 'João Matheus',
+      contactPreferential: 'email',
+      creationDate: '07/06/2024',
+      lastAcess: '06/06/2024 às 13:46h',
+      phone: '81984659946',
+      email: 'joao.matheeus1555@gmail.com',
+      firstName: 'João',
+      lastName: 'Matheus',
+      language: '1',
+      id: '0',
+      status: 'Pendente',
+      perfilAcess: ['AN'],
+    }
   ];
   nameFiltered: string = '';
   selectedStatus: string = '';
@@ -82,12 +81,18 @@ export class TableComponent {
     this.dataFiltered = [...this.users];
   }
 
+  setUser(user: IUser) {
+    this.users.push(user)
+    this.filteringTable()
+    console.log(this.users)
+  }
+
   filteringTable() {
     this.dataFiltered = this.users.filter((user) => {
       const nameFiltered =
-        user.name.toLowerCase().includes(this.nameFiltered.toLowerCase()) ||
+      user.fullName.toLowerCase().includes(this.nameFiltered.toLowerCase()) ||
         user.email.toLowerCase().includes(this.nameFiltered.toLowerCase());
-      const statusFiltered =
+        const statusFiltered =
         this.selectedStatus === '' || user.status === this.selectedStatus;
       return nameFiltered && statusFiltered;
     });

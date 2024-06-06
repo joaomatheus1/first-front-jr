@@ -69,3 +69,7 @@
   font-weight: 300;
   border: none;
 }
+
+button.btn-submit-form:disabled {
+  opacity: 0.5;
+}

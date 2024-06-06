@@ -7,7 +7,7 @@
     <p>Aqui você adiciona e configura os usuários que fazem parte da sua equipe</p>
     <form
       #form="ngForm"
-      (ngSubmit)="submitForm(form.value)"
+      (ngSubmit)="submitForm(form)"
       [formGroup]="userForm"
     >
       <div class="row">
@@ -16,8 +16,8 @@
           <input
             type="text"
             class="form-control"
-            id="name"
-            formControlName="nome"
+            id="firstName"
+            formControlName="firstName"
           />
           <app-validation-message />
         </div>
@@ -26,8 +26,8 @@
           <input
             type="text"
             class="form-control"
-            id="sobrenome"
-            formControlName="sobrenome"
+            id="lastName"
+            formControlName="lastName"
           />
           <app-validation-message />
         </div>
@@ -36,10 +36,11 @@
             >Telefone<span class="text-gray"> - Opcional</span></label
           >
           <input
-            type="text"
+            type="tel"
             class="form-control"
-            id="telefone"
-            formControlName="telefone"
+            id="phone"
+            formControlName="phone"
+            mask = "(00) 0 0000-0000"
           />
           <app-validation-message />
         </div>
@@ -58,13 +59,13 @@
           <p-multiSelect
             [options]="perfilDropdown"
             [(ngModel)]="selectedPerfil"
-            formControlName="perfil"
+            formControlName="perfilAcess"
           ></p-multiSelect>
           <app-validation-message />
         </div>
         <div class="form-group d-flex flex-column col-6 mb-3">
           <label for="idioma">Idioma</label>
-          <select class="form-control select-idioma" formControlName="idioma" id="idioma">
+          <select class="form-control select-idioma" formControlName="language" id="language">
             <option value="" hidden>Selecione o idioma</option>
             <option value="1">Português BR</option>
             <option value="2">Inglês</option>
@@ -82,7 +83,7 @@
             <div class="col-4">
               <input
                 type="radio"
-                formControlName="contatoPreferencial"
+                formControlName="contactPreferential"
                 id="emailRadio"
                 value="email"
               />
@@ -91,7 +92,7 @@
             <div class="col-4">
               <input
                 type="radio"
-                formControlName="contatoPreferencial"
+                formControlName="contactPreferential"
                 id="telefoneRadio"
                 value="telefone"
               />
@@ -100,7 +101,7 @@
             <div class="col-4">
               <input
                 type="radio"
-                formControlName="contatoPreferencial"
+                formControlName="contactPreferential"
                 id="todos"
                 value="todos"
               />
