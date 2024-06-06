@@ -5,6 +5,7 @@ import { IUser } from 'src/utils/user';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
+  providers: []
 })
 export class TableComponent {
   statusOptions = [
@@ -75,6 +76,7 @@ export class TableComponent {
   selectedStatus: string = '';
   dataFiltered: IUser[] = [];
   loading: boolean = false;
+  isModalVisible = false;
 
   constructor() {
     this.dataFiltered = [...this.users];
@@ -89,5 +91,13 @@ export class TableComponent {
         this.selectedStatus === '' || user.status === this.selectedStatus;
       return nameFiltered && statusFiltered;
     });
+  }
+
+  openModal() {
+    this.isModalVisible = true;
+  }
+
+  onModalClose() {
+    this.isModalVisible = false;
   }
 }

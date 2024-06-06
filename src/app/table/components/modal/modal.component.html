@@ -1,36 +1,124 @@
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <div>
-          <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">
-            Adicionar usuário
-          </h1>
-          <p>
-            Aqui você adiciona e configura os usuários que fazem parte da sua
-            equipe
-          </p>
-        </div>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body border-0">
-
-          <app-form />
-
-      </div>
+<div class="modal" [ngClass]="{ show: isVisible }" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="header-modal d-flex justify-content-between">
+      <h1 class="modal-title fw-bold">Adicionar usuário</h1>
+      <span class="close" (click)="onClose()">&times;</span>
     </div>
+    <p>Aqui você adiciona e configura os usuários que fazem parte da sua equipe</p>
+    <form
+      #form="ngForm"
+      (ngSubmit)="submitForm(form.value)"
+      [formGroup]="userForm"
+    >
+      <div class="row">
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="name" class="form-label">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="nome"
+          />
+          <app-validation-message />
+        </div>
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="sobrenome" class="form-label">Sobrenome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sobrenome"
+            formControlName="sobrenome"
+          />
+          <app-validation-message />
+        </div>
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="telefone" class="form-label"
+            >Telefone<span class="text-gray"> - Opcional</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="telefone"
+            formControlName="telefone"
+          />
+          <app-validation-message />
+        </div>
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <app-validation-message />
+        </div>
+        <div class="form-group d-flex flex-column col-12 mb-3">
+          <label for="perfil-acesso" class="form-label">Perfil de acesso</label>
+          <p-multiSelect
+            [options]="perfilDropdown"
+            [(ngModel)]="selectedPerfil"
+            formControlName="perfil"
+          ></p-multiSelect>
+          <app-validation-message />
+        </div>
+        <div class="form-group d-flex flex-column col-6 mb-3">
+          <label for="idioma">Idioma</label>
+          <select class="form-control select-idioma" formControlName="idioma" id="idioma">
+            <option value="" hidden>Selecione o idioma</option>
+            <option value="1">Português BR</option>
+            <option value="2">Inglês</option>
+            <option value="3">Espanhol</option>
+          </select>
+          <app-validation-message />
+        </div>
+        <div class="d-flex flex-column col-6 mb-3">
+          <label for="contato-preferencial"
+            >Contato preferencial<span class="text-gray">
+              - Opcional</span
+            ></label
+          >
+          <div class="row">
+            <div class="col-4">
+              <input
+                type="radio"
+                formControlName="contatoPreferencial"
+                id="emailRadio"
+                value="email"
+              />
+              <label class="ms-2" for="emailRadio">E-mail</label>
+            </div>
+            <div class="col-4">
+              <input
+                type="radio"
+                formControlName="contatoPreferencial"
+                id="telefoneRadio"
+                value="telefone"
+              />
+              <label class="ms-2" for="telefoneRadio">Telefone</label>
+            </div>
+            <div class="col-4">
+              <input
+                type="radio"
+                formControlName="contatoPreferencial"
+                id="todos"
+                value="todos"
+              />
+              <label class="ms-2" for="todos">Todos</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-0 d-flex justify-content-between p-1 gap-3">
+        <div class="btn-close-form d-flex justify-content-center align-items-center">
+          <button type="button" (click)="onClose()">
+            Fechar
+          </button>
+        </div>
+        <button type="submit" class="btn-submit-form" [disabled]="form.invalid">
+          Enviar convite
+        </button>
+      </div>
+    </form>
   </div>
 </div>

@@ -1,3 +1,71 @@
-.modal-dialog {
+::ng-deep .p-multiselect {
+  width: 100%;
+  border-radius: 10px;
+  .p-multiselect-label {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
   max-width: 700px;
+  margin: 0 auto;
+}
+
+.close {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.btn-close-form, .btn-submit-form {
+  width: 100%;
+  padding: 0.5rem 2rem;
+}
+.btn-close-form button {
+  color: #5047ED;
+  font-weight: 300;
+  outline: none;
+  border: none;
+  background-color: unset;
+}
+.btn-submit-form {
+  background-color: #5047ED;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 300;
+  border: none;
 }

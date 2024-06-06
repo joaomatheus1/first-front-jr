@@ -38,9 +38,9 @@ export class ValidationMessageComponent implements OnInit, OnDestroy {
       if (inputDropdownSearch)
         inputDropdownSearch = Array.from(inputDropdownSearch[0].children).find((x: any) => x.classList.contains('dropdown-search'));
       if (inputGroupChildren) inputGroupChildren = Array.from(inputGroupChildren);
-      const inputEl = (inputGroupChildren || arrEl).find((x: any) => (x as HTMLElement).hasAttribute('formcontrolname')) as HTMLElement;
+      const inputEl = (inputGroupChildren || arrEl).find((x: any) => (x as HTMLElement).hasAttribute('formControlName')) as HTMLElement;
       if (inputEl) {
-        this.formControl = this.formGroupDirective.control.get(inputEl.getAttribute('formcontrolname') || '') as UntypedFormControl;
+        this.formControl = this.formGroupDirective.control.get(inputEl.getAttribute('formControlName') || '') as UntypedFormControl;
         this.subscription = this.formControl?.statusChanges?.pipe(distinctUntilChanged()).subscribe(() => this.handleValidators());
         this.label = labelText;
         this.input = inputDropdownSearch || inputEl;

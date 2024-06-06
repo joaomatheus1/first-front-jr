@@ -14,6 +14,8 @@
 .content-table {
   background-color: #fff;
   border: 1px solid #E8E8E8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .header-line th, .body-line td {
@@ -70,4 +72,16 @@
 .pendente span {
   background-color: #FFFDE9;
   color: #DAC98B;
+}
+
+::ng-deep table.p-datatable-table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th:first-child {
+    border-top-left-radius: 10px;
+  }
+  th:last-child {
+    border-top-right-radius: 10px;
+  }
 }
