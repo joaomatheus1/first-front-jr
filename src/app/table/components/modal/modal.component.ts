@@ -1,13 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IPerfil, IUser } from 'src/utils/user';
-
-interface ICoutries {
-  name: string;
-  code: string;
-  flag: string;
-  mask: string;
-}
+import { ICoutries, IPerfil, IUser } from 'src/utils/user';
 
 @Component({
   selector: 'app-modal',
@@ -133,7 +126,6 @@ export class ModalComponent  implements OnInit, OnChanges {
       language: user.language,
       contactPreferential: user.contactPreferential
     })
-    console.log(user)
   }
 
 

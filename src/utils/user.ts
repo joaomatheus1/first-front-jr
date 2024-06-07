@@ -18,3 +18,10 @@ export interface IPerfil {
   label: string;
   value: string;
 }
+
+export interface ICoutries {
+  name: string;
+  code: string;
+  flag: string;
+  mask: string;
+}

@@ -108,14 +108,14 @@ export class TableComponent {
   }
 
   filteringTable() {
-    this.dataFiltered = this.users.filter((user) => {
-      const nameFiltered =
+    this.dataFiltered = this.users.filter(user =>
       user.fullName.toLowerCase().includes(this.nameFiltered.toLowerCase()) ||
-        user.email.toLowerCase().includes(this.nameFiltered.toLowerCase());
-        const statusFiltered =
-        this.selectedStatus === '' || user.status === this.selectedStatus;
-      return nameFiltered && statusFiltered;
-    });
+      user.email.toLowerCase().includes(this.nameFiltered.toLowerCase())
+    );
+
+    if (this.selectedStatus !== '') {
+      this.dataFiltered = this.dataFiltered.filter(user => user.status === this.selectedStatus);
+    }
   }
 
   openModal() {
