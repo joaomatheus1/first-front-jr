@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { generateUniqueId } from 'src/utils/functions';
 import { ICoutries, IPerfil, IUser } from 'src/utils/user';
-
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -38,7 +38,7 @@ export class ModalComponent  implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
-      id: new FormControl(''),
+      id: new FormControl(generateUniqueId()),
       firstName: new FormControl('',[Validators.required, Validators.minLength(1), Validators.maxLength(15)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(15)]),
       flag: new FormControl(''),
