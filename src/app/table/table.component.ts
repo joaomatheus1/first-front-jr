@@ -31,49 +31,64 @@ export class TableComponent {
       flag: '0'
     },
     {
-      fullName: 'João Matheus',
+      fullName: 'Carlos Carlos',
       contactPreferential: 'email',
       creationDate: '05/06/2024',
       lastAcess: '06/06/2024 às 13:22h',
       phone: '81984659946',
       email: 'joao.matheeus1555@gmail.com',
-      firstName: 'João',
-      lastName: 'Matheus',
+      firstName: 'Carlos',
+      lastName: 'Carlos',
       language: '1',
-      id: '0',
+      id: '1',
       status: 'Bloqueado',
       perfilAcess: ['AN'],
       flag: '0'
-    },
-    {
-      fullName: 'João Matheus',
+      },
+      {
+        fullName: 'André Souza',
+        contactPreferential: 'email',
+        creationDate: '17/06/2024',
+        lastAcess: '17/06/2024 às 18:46h',
+        phone: '81984659946',
+        email: 'andré@gmail.com',
+        firstName: 'Julio',
+        lastName: 'Julio',
+        language: '1',
+        id: '4',
+        status: 'Ativo',
+        perfilAcess: ['AN'],
+        flag: '0'
+      },
+      {
+      fullName: 'Felipe Felipe',
       contactPreferential: 'email',
       creationDate: '06/06/2024',
       lastAcess: '06/06/2024 às 13:30h',
       phone: '81984659946',
       email: 'joao.matheeus1555@gmail.com',
-      firstName: 'João',
-      lastName: 'Matheus',
+      firstName: 'Felipe',
+      lastName: 'Felipe',
       language: '1',
-      id: '0',
+      id: '2',
       status: 'Pendente',
       perfilAcess: ['AN'],
       flag: '0'
     },    {
-      fullName: 'João Matheus',
+      fullName: 'Julio Julio',
       contactPreferential: 'email',
       creationDate: '07/06/2024',
       lastAcess: '06/06/2024 às 13:46h',
       phone: '81984659946',
       email: 'joao.matheeus1555@gmail.com',
-      firstName: 'João',
-      lastName: 'Matheus',
+      firstName: 'Julio',
+      lastName: 'Julio',
       language: '1',
-      id: '0',
+      id: '3',
       status: 'Pendente',
       perfilAcess: ['AN'],
       flag: '0'
-    }
+    },
   ];
   nameFiltered: string = '';
   selectedStatus: string = '';
@@ -107,5 +122,14 @@ export class TableComponent {
 
   onModalClose() {
     this.isModalVisible = false;
+  }
+
+  edit(user: IUser) {
+    alert('Indisponível')
+  }
+
+  delete(user: any) {
+    this.users = this.users.filter(el => el.id !== user.id);
+    this.filteringTable();
   }
 }

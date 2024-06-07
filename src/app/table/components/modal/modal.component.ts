@@ -8,19 +8,20 @@ interface ICoutries {
   flag: string;
   mask: string;
 }
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent  {
+export class ModalComponent {
   @Input() isVisible = false;
   @Output() close = new EventEmitter<void>();
   @Output() setUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   perfilDropdown: IPerfil[] = [
     { label: 'Supervisor', value: 'SUP' },
     { label: 'Analista', value: 'ANA' },
-  ];
+    ];
   selectedPerfil: string[] = [];
   userForm!: FormGroup;
   countries: ICoutries[];
@@ -73,7 +74,7 @@ export class ModalComponent  {
   }
 
   submitForm(formData: any) {
-    if(formData.invalid) {
+    if (formData.invalid) {
       return;
     }
     const date = new Date();
@@ -85,8 +86,12 @@ export class ModalComponent  {
     alert("Convite enviado com sucesso");
     this.clearForm();
   }
+
+
   onClose() {
-    if (window.confirm('Deseja sair sem salvar?')) {
+    if (!this.userForm.touched) {
+      this.close.emit()
+    } else if (window.confirm('Deseja sair sem salvar?')) {
       this.clearForm();
     }
   }

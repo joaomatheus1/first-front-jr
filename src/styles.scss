@@ -5,7 +5,7 @@
 @import "primeicons/primeicons.css";
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   background-color: #F6F8FA;
 }
 input:focus, select:focus {

@@ -1,28 +1,29 @@
 .select-filter select {
-  border: 1px solid #E8E8E8;
+  border: 1px solid #e8e8e8;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   height: unset;
   width: unset;
   :focus {
-    border: 1px solid #E8E8E8;
+    border: 1px solid #e8e8e8;
   }
 }
 .content-table {
   background-color: #fff;
-  border: 1px solid #E8E8E8;
+  border: 1px solid #e8e8e8;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.header-line th, .body-line td {
+.header-line th,
+.body-line td {
   font-size: 0.9rem;
   color: #000;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #e8e8e8;
   padding: 1rem 0;
 }
-.body-line.odd{
-  background-color: #F9FAFC;
+.body-line.odd {
+  background-color: #f9fafc;
 }
 .body-line.even {
   background-color: #fff;
@@ -32,19 +33,20 @@
 }
 .input-search input {
   min-width: 300px;
+  font-size: 0.9rem;
 }
 .input-search input {
-  border: 1px solid #E8E8E8;
+  border: 1px solid #e8e8e8;
   padding: 0.5rem 1rem;
   border-radius: 10px;
 
   :focus {
-    border: 1px solid #E8E8E8;
+    border: 1px solid #e8e8e8;
   }
 }
 
 .form-button button {
-  background-color: #6691FF;
+  background-color: #6691ff;
   color: #fff;
   font-weight: 300;
   font-size: 1rem;
@@ -54,21 +56,23 @@
   border-radius: 10px;
 }
 
-.ativo span, .bloqueado span, .pendente span {
+.ativo span,
+.bloqueado span,
+.pendente span {
   padding: 5px 10px;
   border-radius: 50px;
 }
 .ativo span {
-  background-color: #E9FFEF;
-  color: #5EA67A;
+  background-color: #e9ffef;
+  color: #5ea67a;
 }
 .bloqueado span {
-  background-color: #FFEAEA;
-  color: #CE4845;
+  background-color: #ffeaea;
+  color: #ce4845;
 }
 .pendente span {
-  background-color: #FFFDE9;
-  color: #DAC98B;
+  background-color: #fffde9;
+  color: #dac98b;
 }
 
 ::ng-deep table.p-datatable-table {
@@ -81,6 +85,68 @@
   th:last-child {
     border-top-right-radius: 10px;
   }
+}
+::ng-deep .p-element {
+  font-family: "Poppins", sans-serif !important;
+}
+::ng-deep .p-paginator.p-component {
+  background-color: #f6f8fa;
+  border: none;
+}
+
+.icon-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000;
+}
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: #6691ff !important;
+  color: #fff !important;
+}
+.list-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    padding: 0.3rem;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+  }
+}
+
+::ng-deep .p-element.p-button {
+  width: unset;
+  background-color: unset;
+  color: #000;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+}
+::ng-deep .p-button:enabled:hover {
+  background-color: unset;
+  border-color: none;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -96,6 +162,8 @@
         min-width: unset;
         width: 100%;
       }
+
+
     }
   }
 }

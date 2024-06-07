@@ -1,7 +1,7 @@
 <app-modal [isVisible]="isModalVisible" (close)="onModalClose()" (setUser)="setUser($event)"/>
 <div class="header-table d-flex justify-content-between my-3">
   <div class="actions-table d-flex align-items-center gap-3">
-    <div class="input-search">
+    <div class="input-search position-relative">
       <input
         type="text"
         pInputText
@@ -9,6 +9,7 @@
         [(ngModel)]="nameFiltered"
         (ngModelChange)="filteringTable()"
       />
+      <i class="pi pi-search icon-search"></i>
     </div>
     <div class="select-filter">
       <select [(ngModel)]="selectedStatus" (change)="filteringTable()">
@@ -38,7 +39,7 @@
         <th class="ps-3">Usuários</th>
         <th>Status</th>
         <th pSortableColumn="creationDate">Data de criação <i width="20" height="20" class="pi pi-chevron-down"></i></th>
-        <th pSortableColumn="lastAcess">Último acesso</th>
+        <th pSortableColumn="lastAcess">Último acesso <i width="20" height="20" class="pi pi-chevron-down"></i></th>
         <th class="pe-3"></th>
       </tr>
     </ng-template>
@@ -69,7 +70,19 @@
         </td>
         <td>{{ user.creationDate }}</td>
         <td>{{ user.lastAcess }}</td>
-        <td class="pe-3"><i class="pi pi-ellipsis-v"></i></td>
+        <td class="pe-3">
+          <p-overlayPanel #op>
+              <ul class="list-menu">
+                <li role="menuitem" (click)="delete(user)">
+                  <a href="#" class="p-menuitem-link">
+                    <span class="p-menuitem-icon pi pi-times"></span>
+                    <span class="p-menuitem-text">Deletar</span>
+                  </a>
+                </li>
+              </ul>
+          </p-overlayPanel>
+          <p-button (click)="op.toggle($event)" icon="pi pi-ellipsis-v"></p-button>
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
