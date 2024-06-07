@@ -16,6 +16,7 @@ export class TableComponent {
   ];
   users: IUser[] = [
     {
+      id: '0',
       fullName: 'João Matheus',
       contactPreferential: 'email',
       creationDate: '04/06/2024',
@@ -25,12 +26,12 @@ export class TableComponent {
       firstName: 'João',
       lastName: 'Matheus',
       language: '1',
-      id: '0',
       status: 'Bloqueado',
       perfilAcess: ['AN'],
       flag: '0'
     },
     {
+      id: '1',
       fullName: 'Carlos Carlos',
       contactPreferential: 'email',
       creationDate: '05/06/2024',
@@ -40,12 +41,12 @@ export class TableComponent {
       firstName: 'Carlos',
       lastName: 'Carlos',
       language: '1',
-      id: '1',
       status: 'Bloqueado',
       perfilAcess: ['AN'],
       flag: '0'
       },
       {
+        id: '4',
         fullName: 'André Souza',
         contactPreferential: 'email',
         creationDate: '17/06/2024',
@@ -55,12 +56,12 @@ export class TableComponent {
         firstName: 'Julio',
         lastName: 'Julio',
         language: '1',
-        id: '4',
         status: 'Ativo',
         perfilAcess: ['AN'],
         flag: '0'
       },
       {
+      id: '2',
       fullName: 'Felipe Felipe',
       contactPreferential: 'email',
       creationDate: '06/06/2024',
@@ -70,11 +71,11 @@ export class TableComponent {
       firstName: 'Felipe',
       lastName: 'Felipe',
       language: '1',
-      id: '2',
       status: 'Pendente',
       perfilAcess: ['AN'],
       flag: '0'
     },    {
+      id: '3',
       fullName: 'Julio Julio',
       contactPreferential: 'email',
       creationDate: '07/06/2024',
@@ -84,7 +85,6 @@ export class TableComponent {
       firstName: 'Julio',
       lastName: 'Julio',
       language: '1',
-      id: '3',
       status: 'Pendente',
       perfilAcess: ['AN'],
       flag: '0'
@@ -95,6 +95,8 @@ export class TableComponent {
   dataFiltered: IUser[] = [];
   loading: boolean = false;
   isModalVisible = false;
+  userData!: IUser;
+  isEditing: boolean = false;
 
   constructor() {
     this.dataFiltered = [...this.users];
@@ -125,7 +127,9 @@ export class TableComponent {
   }
 
   edit(user: IUser) {
-    alert('Indisponível')
+    this.isEditing = true;
+    this.userData = user;
+    this.openModal();
   }
 
   delete(user: any) {

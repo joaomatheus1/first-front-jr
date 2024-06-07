@@ -64,6 +64,8 @@
             [options]="perfilDropdown"
             [(ngModel)]="selectedPerfil"
             formControlName="perfilAcess"
+            dataKey="code"
+            [disabled]="isEditing"
           ></p-multiSelect>
           <app-validation-message />
         </div>

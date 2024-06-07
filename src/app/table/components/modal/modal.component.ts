@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IPerfil, IUser } from 'src/utils/user';
 
@@ -14,8 +14,11 @@ interface ICoutries {
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent {
-  @Input() isVisible = false;
+export class ModalComponent  implements OnInit, OnChanges {
+  @Input() isVisible: boolean = false;
+  @Input() userData!: IUser;
+  @Input() users!:IUser[];
+  @Input() isEditing: boolean = false;
   @Output() close = new EventEmitter<void>();
   @Output() setUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   perfilDropdown: IPerfil[] = [
@@ -43,8 +46,8 @@ export class ModalComponent {
   ngOnInit(): void {
     this.userForm = new FormGroup({
       id: new FormControl(''),
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
+      firstName: new FormControl('',[Validators.required, Validators.minLength(1), Validators.maxLength(15)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(15)]),
       flag: new FormControl(''),
       phone: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -53,6 +56,11 @@ export class ModalComponent {
       contactPreferential: new FormControl(''),
     });
     this.mask = this.countries[0].mask;
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['userData'] && changes['userData'].currentValue) {
+      this.editForm(changes['userData'].currentValue);
+    }
   }
 
   clearForm() {
@@ -77,6 +85,13 @@ export class ModalComponent {
     if (formData.invalid) {
       return;
     }
+    if(this.isEditing) {
+      this.setEditUser(formData);
+      this.isEditing = false;
+      alert('Usuário editado com sucesso');
+      this.clearForm();
+      return;
+    }
     const date = new Date();
     formData.value.creationDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getUTCFullYear()}`;
     formData.value.lastAcess = `${formData.value.creationDate} às ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}h`;
@@ -85,6 +100,40 @@ export class ModalComponent {
     this.setUser.emit(formData.value);
     alert("Convite enviado com sucesso");
     this.clearForm();
+  }
+
+  setEditUser(formData:any) {
+    this.users.forEach(user => {
+      if(user.id === this.userData.id) {
+        user.id = formData.value.id
+        user.fullName = formData.value.fullName
+        user.email = formData.value.email
+        user.lastName = formData.value.lastName
+        user.status = 'Ativo'
+        user.firstName = formData.value.firstName
+        user.flag = formData.value.flag
+        user.phone = formData.value.phone
+        user.perfilAcess = formData.value.perfilAcess
+        user.language = formData.value.language
+        user.contactPreferential= formData.value.contactPreferential
+        user.fullName = `${this.setFullName(formData.value.firstName)} ${this.setFullName(formData.value.lastName)}`;
+      }
+    })
+  }
+
+  editForm(user: IUser) {
+    this.userForm.patchValue({
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      flag: user.flag,
+      phone: user.phone,
+      email: user.email,
+      perfilAcess: user.perfilAcess,
+      language: user.language,
+      contactPreferential: user.contactPreferential
+    })
+    console.log(user)
   }
 
 
